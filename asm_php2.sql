@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 19, 2024 lúc 11:19 AM
+-- Thời gian đã tạo: Th1 28, 2024 lúc 06:20 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -90,6 +90,7 @@ CREATE TABLE `sanpham` (
   `GiaSP` int(11) NOT NULL,
   `MotaSP` text NOT NULL,
   `ViewSP` int(11) NOT NULL,
+  `stock_quantity` int(11) NOT NULL,
   `MaDM` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -97,15 +98,15 @@ CREATE TABLE `sanpham` (
 -- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
-INSERT INTO `sanpham` (`IDSP`, `TenSP`, `AnhSP`, `GiaSP`, `MotaSP`, `ViewSP`, `MaDM`) VALUES
-(1, 'MacBook Air 13”', 'mba_13.png', 999, '', 12693, 2),
-(2, 'iPhone 15', 'iphone_15.png', 799, '', 19648, 1),
-(3, 'iPhone 14', 'iphone_14.png', 699, '', 14458, 1),
-(4, 'Apple Watch Ultra 2', 'ultra2.png', 799, '', 7074, 7),
-(5, 'iPad Pro', 'ipad_pro.png', 799, '', 14076, 6),
-(6, 'MacBook Air 13” and 15”', 'mba_13_15.png', 1099, '', 16837, 2),
-(7, 'iPhone 15 Pro', 'iphone_15_pro.png', 999, '', 23576, 1),
-(8, 'MacBook Pro 14” and 16”', 'mbp_14_16.png', 1599, '', 22606, 2);
+INSERT INTO `sanpham` (`IDSP`, `TenSP`, `AnhSP`, `GiaSP`, `MotaSP`, `ViewSP`, `stock_quantity`, `MaDM`) VALUES
+(1, 'MacBook Air 13”', 'mba_13.png', 999, '', 12693, 0, 2),
+(2, 'iPhone 15', 'iphone_15.png', 799, '', 19648, 0, 1),
+(3, 'iPhone 14', 'iphone_14.png', 699, '', 14458, 0, 1),
+(4, 'Apple Watch Ultra 2', 'ultra2.png', 799, '', 7074, 0, 7),
+(5, 'iPad Pro', 'ipad_pro.png', 799, '', 14076, 0, 6),
+(6, 'MacBook Air 13” and 15”', 'mba_13_15.png', 1099, '', 16837, 0, 2),
+(7, 'iPhone 15 Pro', 'iphone_15_pro.png', 999, 'Điện thoại iPhone 15 Pro được trang bị màn hình mới Dynamic Island với kích thước 6.1 inch cùng công nghệ ProMotion và tính năng Always On Display', 23576, 0, 1),
+(8, 'MacBook Pro 14” and 16”', 'mbp_14_16.png', 1599, '', 22606, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -116,8 +117,8 @@ INSERT INTO `sanpham` (`IDSP`, `TenSP`, `AnhSP`, `GiaSP`, `MotaSP`, `ViewSP`, `M
 CREATE TABLE `taikhoan` (
   `IDTK` int(11) NOT NULL,
   `UserName` varchar(50) NOT NULL,
-  `Password` varchar(50) NOT NULL,
   `Email` text NOT NULL,
+  `Password` varchar(50) NOT NULL,
   `Role` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1KH 0ADmin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -133,6 +134,31 @@ CREATE TABLE `thanhtoan` (
   `NgayTT` date NOT NULL,
   `PhuongThucTT` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
+(1, 'Công Nghĩa', 'nghiatg526@gmail.com', '123', 1),
+(2, 'n', 'n@d', '123', 0),
+(3, 'v', 'b@f', '22', 0),
+(4, 'h', 'g@r', '33', 0),
+(5, 'b', 'h@g', '22', 0);
 
 -- --------------------------------------------------------
 
@@ -195,6 +221,12 @@ ALTER TABLE `thanhtoan`
   ADD KEY `fk_thanhtoan_hoadon` (`IDHD`);
 
 --
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `vanchuyen`
 --
 ALTER TABLE `vanchuyen`
@@ -239,6 +271,12 @@ ALTER TABLE `taikhoan`
 --
 ALTER TABLE `thanhtoan`
   MODIFY `IDTT` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
