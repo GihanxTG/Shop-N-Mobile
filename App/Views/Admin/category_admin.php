@@ -1,4 +1,11 @@
 <?php require_once "header.php"; ?>
+<?php 
+    $dsdm_show = $data["categories"];
+    $homepage=new App\Models\AdminModel;
+    $html_dsdm_cattegory=$homepage->show_category($dssp_show);
+    
+
+?>
     <div class="container">
         <div class="content">
             <div class="header_content">
@@ -17,7 +24,7 @@
                     <div class="category_header-operation">Thao tác</div>
                 </div>
 
-
+                <!-- Hiển thị danh mục lấy từ database -->
                 <div class="category_wrapper">
                     <div class="category_stt">1</div>
                     <div class="category_category">Thời Trang Nam</div>
@@ -26,13 +33,8 @@
                         <a href="#" class="category_operation-delete"><i class="fa-regular fa-trash-can"></i></a>
                     </div>
                 </div>
-
-                <!-- <form action="admin.php?trang=danhmucthem" method="post">
-                    <label for="">Tên danh mục</label>
-                    <input type="text" name="tendm" value=""> <br>
-                    <input type="submit" name="them" value="Thêm">
-                </form> -->
-
+                <?=$html_dsdm_cattegory?>
+                
 
             </div>
         </div>

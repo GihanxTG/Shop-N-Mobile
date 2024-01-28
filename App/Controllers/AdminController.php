@@ -16,6 +16,13 @@
 
         function category() {
             $this->titlepage = 'Admin Category';
+            
+            // Lấy tất cả danh mục từ cơ sở dữ liệu
+            $categories = $this->AdminModel->danhmuc_get_all();
+
+            // Chuyển dữ liệu danh mục vào view
+            $this->data['categories'] = $categories;
+
             $this->renderView("category_admin", $this->titlepage, $this->data);
         }
 
