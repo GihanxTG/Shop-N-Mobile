@@ -8,15 +8,6 @@
 ?>
     <div class="container">
         <div class="content">
-            <div class="header_content">
-                <div class="header_content-info">
-                    Danh mục sản phẩm
-                </div>
-                <button class="header_content-btn">
-                    <i class="fa-solid fa-plus"></i>
-                    Thêm sản phẩm mới
-                </button>
-            </div>
             <div class="content_category-box">
                 <div class="category-header">
                     <div class="category_header-stt">STT</div>

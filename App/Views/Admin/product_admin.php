@@ -1,23 +1,14 @@
 <?php require_once "header.php"; ?>
     <div class="container">
         <div class="content">
-            <div class="header_content">
-                <div class="header_content-info">
-                    Sản Phẩm
-                </div>
-                <button class="header_content-btn">
-                    <i class="fa-solid fa-plus"></i> 
-                    Thêm sản phẩm mới
-                </button>
-            </div>
             <div class="content_product-box">
                 <div class="product-header">
                     <div class="product_header-stt">STT</div>
-                    <div class="product_header-img">Hình Ảnh</div>
-                    <div class="product_header-name">Tên Sản Phẩm</div>
-                    <div class="product_header-price">Giá</div>
-                    <div class="product_header-sold">Đã Bán</div>
-                    <div class="product_header-discount">Giảm Giá</div>
+                    <div class="product_header-img">Image</div>
+                    <div class="product_header-name">Name</div>
+                    <div class="product_header-price">Price</div>
+                    <div class="product_header-sold">Description</div>
+                    <div class="product_header-discount">View</div>
                     <div class="product_header-discount">Danh Mục</div>
                     <div class="product_header-operation">Thao tác</div>
                 </div>

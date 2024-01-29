@@ -7,11 +7,11 @@
         }
 
         function sanpham_get_all($view,$limit){
-            $sql="select * from sanpham where 1";
+            $sql="select * from products where 1";
             if ($view>0){
-                $sql.=" order by ViewSP desc limit ".$limit;
+                $sql.=" order by view desc limit ".$limit;
             }else{
-                $sql.=" order by IDSP desc limit ".$limit;
+                $sql.=" order by product_id desc limit ".$limit;
             }
             return $this->db->get_all($sql);
 
@@ -19,27 +19,27 @@
 
 
         function danhmuc_get_all(){
-          $sql="select * from danhmuc order by IDDM asc";
+          $sql="select * from categories order by categories_id asc";
           return $this->db->get_all($sql);
         }
 
         
 
         function sanpham_get_all_catalog($kyw,$idcatalog,$slsp,$sotrang){
-            $sql="select * from sanpham where 1";
+            $sql="select * from products where 1";
             if ($idcatalog>0){
-                $sql.=" AND MaDM= ".$idcatalog;
+                $sql.=" AND categories_id= ".$idcatalog;
             }
 
             if($kyw!=""){
-                $sql.=" AND TenSP LIKE '%".$kyw."%'";
+                $sql.=" AND name LIKE '%".$kyw."%'";
             }
 
             $limit1=($sotrang-1)*$slsp;
 
             $limit2=$slsp;
 
-            $sql.=" order by IDSP desc limit ".$limit1.",".$limit2;
+            $sql.=" order by product_id desc limit ".$limit1.",".$limit2;
             return $this->db->get_all($sql);
         }
 
@@ -47,7 +47,7 @@
         
 
         function sanpham_get_one($id){
-          $sql="select * from sanpham where IDSP=?";
+          $sql="select * from products where product_id=?";
           return $this->db->get_one($sql,$id);
         }
 
@@ -56,11 +56,11 @@
             $html_dssp_home='';
             foreach ($dssp as $item) {
                 extract($item);
-                $hrefsp=BASEPATH.'product/detail/'.$IDSP;
+                $hrefsp=BASEPATH.'product/detail/'.$product_id;
                 $html_dssp_home.= '<div class="item col-md-3 col-sm-4 cat-1 cat-2">
                                         <a class="fancybox" href="'.$hrefsp.'">
                                         <div class="item-thumbnail">
-                                            <img src="'.BASEPATH.'Public/assets/images/'.$AnhSP.'" alt="'.$TenSP.'">
+                                            <img src="'.BASEPATH.'Public/assets/images/'.$image.'" alt="'.$name.'">
                                         <span class="ribbon sale">-35%</span>
                                         </div>
                                         </a>
@@ -71,10 +71,10 @@
                                             <button class="wish-list"><i class="fa fa-heart"></i></button>
                                         </div><!-- /.buttons -->
                         
-                                        <h3 class="item-title"><a href="'.$hrefsp.'">'.$TenSP.'</a></h3>
+                                        <h3 class="item-title"><a href="'.$hrefsp.'">'.$name.'</a></h3>
                                         <div class="item-price">
                                             <span class="currency">$</span>
-                                            <span class="price">'.$GiaSP.'</span>
+                                            <span class="price">'.$price.'</span>
                                         </div>
                         
                                         <div class="rating"><input type="hidden" class="rating-tooltip-manual" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="5"/></div><!-- /.rating -->
@@ -89,12 +89,12 @@
             $html_dssp_all_product='';
             foreach ($dssp as $item) {
                 extract($item);
-                $hrefsp=BASEPATH.'product/detail/'.$IDSP;
+                $hrefsp=BASEPATH.'product/detail/'.$product_id;
                 $html_dssp_all_product.= '<div class="col-sm-4">
                                         <div class="item">
                                         <a class="fancybox" href="images/home08/featured/9.jpg">
                                         <div class="item-thumbnail">
-                                            <img src="'.BASEPATH.'Public/assets/images/'.$AnhSP.'" alt="'.$TenSP.'">
+                                            <img src="'.BASEPATH.'Public/assets/images/'.$image.'" alt="'.$name.'">
                                             
                                         </div><!-- /.item-thumbnail -->
                                         </a>
@@ -104,10 +104,10 @@
                                             <button class="add-to-cart">Add to cart<i class="fa fa-shopping-cart"></i></button>
                                             <button class="wish-list"><i class="fa fa-heart"></i></button>
                                             </div><!-- /.buttons -->
-                                            <h3 class="item-title"><a href="'.$hrefsp.'">'.$TenSP.'</a></h3><!-- /.item-title -->
+                                            <h3 class="item-title"><a href="'.$hrefsp.'">'.$name.'</a></h3><!-- /.item-title -->
                                             <div class="item-price">
                                             <span class="currency">$</span>
-                                            <span class="price">'.$GiaSP.'</span>
+                                            <span class="price">'.$price.'</span>
                                             </div><!-- /.item-price -->
                                             <div class="rating">
                                             <input type="hidden" class="rating-tooltip-manual" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="5"/>

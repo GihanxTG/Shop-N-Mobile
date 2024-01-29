@@ -8,9 +8,9 @@
     $html_dssp_all_cata="";
     foreach ($cata_all as $item) {
         extract($item);
-        $href=BASEPATH.'product/idcatalog/'.$IDDM;
+        $href=BASEPATH.'product/idcatalog/'.$categories_id;
         $html_dssp_all_cata.='<li class="menu-item menu-item-has-children">
-                                <a href="'.$href.'">'.$TenDM.'</a>
+                                <a href="'.$href.'">'.$name.'</a>
                               </li>';
     }
 ?>
