@@ -26,6 +26,8 @@
 
         function product() {
             $this->titlepage = 'Admin Product';
+            $product_all=$this->AdminModel->sanpham_get_all();
+            $this->data["All_product"]=$product_all;
             $this->renderView("product_admin", $this->titlepage, $this->data);
         }
 

@@ -11,8 +11,8 @@
             <div class="content_category-box">
                 <div class="category-header">
                     <div class="category_header-stt">STT</div>
-                    <div class="category_header-category">Tên Danh mục</div>
-                    <div class="category_header-operation">Thao tác</div>
+                    <div class="category_header-category">Categories</div>
+                    <div class="category_header-operation">Button</div>
                 </div>
 
                 <!-- Hiển thị danh mục lấy từ database -->

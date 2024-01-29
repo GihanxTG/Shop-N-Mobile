@@ -60,7 +60,7 @@
                 $html_dssp_home.= '<div class="item col-md-3 col-sm-4 cat-1 cat-2">
                                         <a class="fancybox" href="'.$hrefsp.'">
                                         <div class="item-thumbnail">
-                                            <img src="'.BASEPATH.'Public/assets/images/'.$image.'" alt="'.$name.'">
+                                            <img src="'.BASEPATH.'Public/assets/images/'.$image.'" alt="'.$product_name.'">
                                         <span class="ribbon sale">-35%</span>
                                         </div>
                                         </a>
@@ -71,7 +71,7 @@
                                             <button class="wish-list"><i class="fa fa-heart"></i></button>
                                         </div><!-- /.buttons -->
                         
-                                        <h3 class="item-title"><a href="'.$hrefsp.'">'.$name.'</a></h3>
+                                        <h3 class="item-title"><a href="'.$hrefsp.'">'.$product_name.'</a></h3>
                                         <div class="item-price">
                                             <span class="currency">$</span>
                                             <span class="price">'.$price.'</span>
@@ -94,7 +94,7 @@
                                         <div class="item">
                                         <a class="fancybox" href="images/home08/featured/9.jpg">
                                         <div class="item-thumbnail">
-                                            <img src="'.BASEPATH.'Public/assets/images/'.$image.'" alt="'.$name.'">
+                                            <img src="'.BASEPATH.'Public/assets/images/'.$image.'" alt="'.$product_name.'">
                                             
                                         </div><!-- /.item-thumbnail -->
                                         </a>
@@ -104,7 +104,7 @@
                                             <button class="add-to-cart">Add to cart<i class="fa fa-shopping-cart"></i></button>
                                             <button class="wish-list"><i class="fa fa-heart"></i></button>
                                             </div><!-- /.buttons -->
-                                            <h3 class="item-title"><a href="'.$hrefsp.'">'.$name.'</a></h3><!-- /.item-title -->
+                                            <h3 class="item-title"><a href="'.$hrefsp.'">'.$product_name.'</a></h3><!-- /.item-title -->
                                             <div class="item-price">
                                             <span class="currency">$</span>
                                             <span class="price">'.$price.'</span>
