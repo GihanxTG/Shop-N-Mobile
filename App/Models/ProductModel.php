@@ -20,7 +20,6 @@
 
         function danhmuc_get_all(){
           $sql="select * from danhmuc order by IDDM asc";
-
           return $this->db->get_all($sql);
         }
 

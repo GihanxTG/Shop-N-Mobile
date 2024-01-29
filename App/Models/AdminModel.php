@@ -8,15 +8,14 @@
 
         function danhmuc_get_all(){
             $sql="select * from danhmuc order by IDDM asc";
-  
             return $this->db->get_all($sql);
         }
 
-        function show_category($dsdm){
-            $html_dsdm_cattegory='';
-            foreach ($dsdm as $item) {
+        function show_category($cata_all){
+            $html_dsdm_category='';
+            foreach ($cata_all as $item) {
                 extract($item);
-                $html_dsdm_cattegory.= '<div class="category_wrapper">
+                $html_dsdm_category.= '<div class="category_wrapper">
                                             <div class="category_stt">'. $IDDM .'</div>
                                             <div class="category_category">'. $TenDM .'</div>
                                             <div class="category_operation">
@@ -25,7 +24,7 @@
                                             </div>
                                         </div>';
             }
-            return $html_dsdm_cattegory;
+            return $html_dsdm_category;
         }
 
     }

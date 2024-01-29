@@ -1,10 +1,10 @@
 <?php require_once "header.php"; ?>
 <?php 
-    $dsdm_show = $data["categories"];
-    $homepage=new App\Models\AdminModel;
-    $html_dsdm_cattegory=$homepage->show_category($dssp_show);
-    
 
+    $cata_all = $data["All_Cata"];
+    $catapage=new App\Models\AdminModel;
+    $html_dsdm_all_cata=$catapage->show_category($cata_all);
+    
 ?>
     <div class="container">
         <div class="content">
@@ -13,7 +13,7 @@
                     Danh mục sản phẩm
                 </div>
                 <button class="header_content-btn">
-                    <i class="fa-solid fa-plus"></i> 
+                    <i class="fa-solid fa-plus"></i>
                     Thêm sản phẩm mới
                 </button>
             </div>
@@ -25,15 +25,7 @@
                 </div>
 
                 <!-- Hiển thị danh mục lấy từ database -->
-                <div class="category_wrapper">
-                    <div class="category_stt">1</div>
-                    <div class="category_category">Thời Trang Nam</div>
-                    <div class="category_operation">
-                        <a href="#" class="category_operation-edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                        <a href="#" class="category_operation-delete"><i class="fa-regular fa-trash-can"></i></a>
-                    </div>
-                </div>
-                <?=$html_dsdm_cattegory?>
+                <?=$html_dsdm_all_cata ?>
                 
 
             </div>
