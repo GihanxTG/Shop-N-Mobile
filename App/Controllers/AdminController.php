@@ -67,6 +67,18 @@
             $this->renderView("category_admin", $this->titlepage, $this->data);
         }
 
+        function addcatalogform(){
+            $this->titlepage = 'Thêm danh mục mới';
+            $this->renderView("AddCatalogForm", $this->titlepage, $this->data);
+        }
+
+        function addcatalog(){
+            $this->titlepage = 'Danh sách danh mục';
+            $dsdm_admin=$this->AdminModel->category_get_all();
+            $this->data["danhmuc_all"]=$dsdm_admin;
+            $this->renderView("CategoryAdmin", $this->titlepage, $this->data);
+        }
+
         function product() {
             $this->titlepage = 'Admin Product';
             $product_all=$this->AdminModel->sanpham_get_all();
