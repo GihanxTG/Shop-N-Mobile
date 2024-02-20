@@ -28,16 +28,16 @@
 
                     <div class="tab-content">
                       <div role="tabpanel" class="tab-pane in active" id="item1">
-                        <img src="<?=BASEPATH?>Public/assets/images/<?=$AnhSP?>" alt="<?=$TenSP?>"> 
+                        <img src="<?=BASEPATH?>Public/assets/images/<?=$image?>" alt="<?=$product_name?>"> 
                       </div>
                       <div role="tabpanel" class="tab-pane fade" id="item2">
-                        <img src="<?=BASEPATH?>Public/assets/images/mbp_14_16.png" alt="<?=$TenSP?>"> 
+                        <img src="<?=BASEPATH?>Public/assets/images/mbp_14_16.png" alt="<?=$product_name?>"> 
                       </div>
                       <div role="tabpanel" class="tab-pane fade" id="item3">
-                        <img src="<?=BASEPATH?>Public/assets/images/mbp_14_16.png" alt="<?=$TenSP?>"> 
+                        <img src="<?=BASEPATH?>Public/assets/images/mbp_14_16.png" alt="<?=$product_name?>"> 
                       </div>
                       <div role="tabpanel" class="tab-pane fade" id="item4">
-                        <img src="<?=BASEPATH?>Public/assets/images/mbp_14_16.png" alt="<?=$TenSP?>"> 
+                        <img src="<?=BASEPATH?>Public/assets/images/mbp_14_16.png" alt="<?=$product_name?>"> 
                       </div>
                     </div><!-- /.tab-content -->
 
@@ -55,9 +55,9 @@
 
             <div class="col-md-6">
               <div class="about-product">
-                <h3 class="item-title"><?=$TenSP?></h3>
+                <h3 class="item-title"><?=$product_name?></h3>
                 <div class="top-meta">
-                  <a href="#"><?=$ViewSP?> View</a>
+                  <a href="#"><?=$view?>View</a>
                   <a href="#">Write a review</a>
                 </div><!-- /.top-meta -->
 
@@ -68,7 +68,7 @@
                 <div class="rating"><input type="hidden" class="rating-tooltip-manual" data-filled="fa fa-star" data-empty="fa fa-star-o" data-fractions="5"/></div><!-- /.rating -->
 
                 <div class="item-price">
-                  <div class="current-price"><span class="currency">$</span><span class="price"><?=$GiaSP?></span></div><!-- /.current-price -->
+                  <div class="current-price"><span class="currency">$</span><span class="price"><?=$price?></span></div><!-- /.current-price -->
                   <!-- <div class="previous-price"><span class="currency">$</span><span class="price">1499</span></div>  /.previous-price -->
                 </div><!-- /.item-price -->
 
@@ -95,7 +95,7 @@
                   <option value="5">XXL</option>
                 </select>
 
-                <p class="description"><?=$MotaSP?></p><!-- /.short-description -->
+                <p class="description"><?=$description?></p><!-- /.short-description -->
 
                 <div class="buttons">
                   <button class="add-to-cart">Add to cart<i class="fa fa-shopping-cart"></i></button>

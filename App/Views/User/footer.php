@@ -107,6 +107,7 @@
     <script src="<?=BASEPATH?>Public/assets/js/jquery.lwtCountdown-1.0.js"></script>
     <script src="<?=BASEPATH?>Public/assets/js/jquery-ui.min.js"></script>
     <script src="<?=BASEPATH?>Public/assets/js/bootstrap-rating.min.js"></script>
+    <script src="<?=BASEPATH?>Public/assets/js/giohang.js"></script>
 
     <script type="text/javascript">
 

@@ -67,7 +67,13 @@
                                         
                                         <div class="item-content">
                                         <div class="buttons">
-                                            <button class="add-to-cart">Add to cart<i class="fa fa-shopping-cart"></i></button>
+                                            <form action="'.BASEPATH.'addcart" method="post">
+                                                <input type="hidden" name="product_id" value="'.$product_id.'">
+                                                <input type="hidden" name="image" value="'.$image.'">
+                                                <input type="hidden" name="price" value="'.$price.'">
+                                                <input type="hidden" name="product_name" value="'.$product_name.'">
+                                                <button type="submit" name="addcart" class="add-to-cart">Add to cart<i class="fa fa-shopping-cart"></i></button>
+                                            </form>
                                             <button class="wish-list"><i class="fa fa-heart"></i></button>
                                         </div><!-- /.buttons -->
                         
@@ -101,7 +107,13 @@
                                         
                                         <div class="item-content">
                                             <div class="buttons">
-                                            <button class="add-to-cart">Add to cart<i class="fa fa-shopping-cart"></i></button>
+                                            <form action="'.BASEPATH.'addcart" method="post">
+                                                <input type="hidden" name="product_id" value="'.$product_id.'">
+                                                <input type="hidden" name="image" value="'.$image.'">
+                                                <input type="hidden" name="price" value="'.$price.'">
+                                                <input type="hidden" name="product_name" value="'.$product_name.'">
+                                                <button type="submit" name="addcart" class="add-to-cart">Add to cart<i class="fa fa-shopping-cart"></i></button>
+                                            </form>
                                             <button class="wish-list"><i class="fa fa-heart"></i></button>
                                             </div><!-- /.buttons -->
                                             <h3 class="item-title"><a href="'.$hrefsp.'">'.$product_name.'</a></h3><!-- /.item-title -->

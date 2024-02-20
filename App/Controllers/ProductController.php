@@ -63,7 +63,7 @@
             $get_sanpham=$this->ProductModel->sanpham_get_one($id);
             if(is_array($get_sanpham)){
                 extract($get_sanpham);
-            $this->titlepage = $TenSP;
+            $this->titlepage = $product_name;
             $this->data["DetailSP"]=$get_sanpham;
             $this->renderView("productdetail", $this->titlepage, $this->data);
             }

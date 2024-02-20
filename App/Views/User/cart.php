@@ -1,9 +1,50 @@
 <?php require_once "header.php"; ?>
+<?php
+  $html_cart="";
+  $tongtien=0;
+  if(count($_SESSION["giohang"])>0){
+    foreach ($_SESSION["giohang"] as $item) {
+      $tt=$item["Soluong"]*$item["price"];
+      $tongtien+=$tt;
+      $html_cart.='<tr>
 
+                    <td class="order-item">
+                      
+                      <div class="item-thumbnail">
+                        <img src="Public/assets/images/'.$item["image"].'" alt="images">
+                      </div><!-- /.item-thumbnail -->
+
+                      <div class="item-details">
+                        <h3 class="item-title">'.$item["product_name"].'</h3>
+                        <div class="product-meta">
+                          <span class="meta-id"> Color: <span class="meta-about">Black</span></span>
+                          <span class="meta-id"> Size: <span class="meta-about">XL</span></span>
+                        </div><!-- /.product-meta -->
+                      </div><!-- /.item-details -->
+                    </td>
+                    <td class="unit-price"><span class="currency">$</span><span class="price">'.$item["price"].'</span></td>
+
+                    <td class="order-count">
+                      <div class="cart-counter">
+                        <button type="button" onclick="giamsoluong(this)" class="item-minus"><i class="ti-minus"></i></button>
+                        <input type="text" onkeyup="kiemtrasoluong(this)" class="item-count" value="'.$item["Soluong"].'" placeholder="">
+                        <button onclick="tangsoluong(this)" class="item-plus"><i class="ti-plus"></i></button>
+                        <input type="hidden" value="'.$item["product_id"].'">
+                        </div><!-- /.cart-counter -->
+                    </td>
+
+                    <td class="total-price"><span class="currency">$</span><span class="price">'.$tt.'</span></td>
+
+                    <td class="edit"><a href="'.BASEPATH.'deleteproduct/'.$item["product_id"].'" class="del"><i class="ti-trash"></i></a></td>
+                  </tr>';
+    }
+    
+  }
+?>
 
   <section class="cart-section">
     <div class="section-padding">
-      <div class="container">
+      <div class="container" id="cart">
         <div class="per-order-items">
 
           <table class="cart-table">
@@ -15,156 +56,38 @@
                 <th>SUBTOTAL</th>
                 <th></th>
               </tr>
-              <tr>
-
-                <td class="order-item">
-                  <button class="del"><i class="ti-trash"></i></button>
-                  <div class="item-thumbnail">
-                    <img src="images/shop/cart/1.jpg" alt="images">
-                  </div><!-- /.item-thumbnail -->
-
-                  <div class="item-details">
-                    <h3 class="item-title">Product Name</h3>
-                    <div class="product-meta">
-                      <span class="meta-id"> Color: <span class="meta-about">Black</span></span>
-                      <span class="meta-id"> Size: <span class="meta-about">XL</span></span>
-                    </div><!-- /.product-meta -->
-                  </div><!-- /.item-details -->
-                </td>
-                <td class="unit-price"><span class="currency">$</span><span class="price">99.00</span></td>
-
-                <td class="order-count">
-                  <div class="cart-counter">
-                    <button class="item-minus"><i class="ti-minus"></i></button>
-                    <span class="item-count">1</span>
-                    <button class="item-plus"><i class="ti-plus"></i></button>
-                  </div><!-- /.cart-counter -->
-                </td>
-
-                <td class="total-price"><span class="currency">$</span><span class="price">99.00</span></td>
-
-                <td class="edit"><button><i class="ti-pencil"></i></button></td>
-              </tr>
-
-              <tr>
-                <td class="order-item">
-                  <button class="del"><i class="ti-trash"></i></button>
-                  <div class="item-thumbnail">
-                    <img src="images/shop/cart/2.jpg" alt="images">
-                  </div><!-- /.item-thumbnail -->
-
-                  <div class="item-details">
-                    <h3 class="item-title">Product Name</h3>
-                    <div class="product-meta">
-                      <span class="meta-id"> Color: <span class="meta-about">Black</span></span>
-                      <span class="meta-id"> Size: <span class="meta-about">XL</span></span>
-                    </div><!-- /.product-meta -->
-                  </div><!-- /.item-details -->
-                </td>
-                <td class="unit-price"><span class="currency">$</span><span class="price">99.00</span></td>
-
-                <td class="order-count">
-                  <div class="cart-counter">
-                    <button class="item-minus"><i class="ti-minus"></i></button>
-                    <span class="item-count">1</span>
-                    <button class="item-plus"><i class="ti-plus"></i></button>
-                  </div><!-- /.cart-counter -->
-                </td>
-
-                <td class="total-price"><span class="currency">$</span><span class="price">99.00</span></td>
-                <td class="edit"><button><i class="ti-pencil"></i></button></td>
-              </tr>
-              <tr>
-                <td class="order-item">
-                  <button class="del"><i class="ti-trash"></i></button>
-                  <div class="item-thumbnail">
-                    <img src="images/shop/cart/3.jpg" alt="images">
-                  </div><!-- /.item-thumbnail -->
-
-                  <div class="item-details">
-                    <h3 class="item-title">Product Name</h3>
-                    <div class="product-meta">
-                      <span class="meta-id"> Color: <span class="meta-about">Black</span></span>
-                      <span class="meta-id"> Size: <span class="meta-about">XL</span></span>
-                    </div><!-- /.product-meta -->
-                  </div><!-- /.item-details -->
-                </td>
-                <td class="unit-price"><span class="currency">$</span><span class="price">99.00</span></td>
-
-                <td class="order-count">
-                  <div class="cart-counter">
-                    <button class="item-minus"><i class="ti-minus"></i></button>
-                    <span class="item-count">1</span>
-                    <button class="item-plus"><i class="ti-plus"></i></button>
-                  </div><!-- /.cart-counter -->
-                </td>
-
-                <td class="total-price"><span class="currency">$</span><span class="price">99.00</span></td>
-                <td class="edit"><button><i class="ti-pencil"></i></button></td>
-              </tr>
+              <?=$html_cart?>
             </tbody>
           </table><!-- /.cart-table -->
 
           <div class="cart-buttons">
-            <button class="clear-cart">Clear shopping cart</button>
-            <button class="update-cart">Update shopping cart</button>
-            <button class="continue pull-right">Continue shopping</button>
+            <!-- <a href="<?=BASEPATH?>deletecart" class="clear-cart">Clear shopping cart</a> -->
+            <a href="<?=BASEPATH?>deletecart" class="clear-cart">Clear shopping cart</a>
+            <!-- <button class="update-cart">Update shopping cart</button> -->
+            <a href="<?=BASEPATH?>product" class="continue pull-right">Continue shopping</a>
           </div><!-- /.cart-buttons -->
         </div><!-- /.per-order-items -->
 
         <div class="billing-table">   
-          <div class="row">
-            <div class="discount-details col-md-4 col-sm-6">
-              <h3 class="title">Have a cupon?</h3>
-              <form action="#">
-                <input class="form-input" type="text" placeholder="Cupon Code">
-                <button type="submit" class="btn submit-code">Apply Code</button>
-              </form>
-            </div><!-- /.discount-details -->
-
-            <div class="shipping-details col-md-4 col-sm-6">
-              <h3 class="title">Calculating Shipping</h3>
-              <form action="#">
-                  <select name="country" id="Country-name" class="form-input">
-                    <option value="">Country*</option>
-                    <option value="1">USA</option>
-                    <option value="2">Franch</option>
-                    <option value="3">Germany</option>
-                    <option value="4">Russia</option>
-                  </select>
-
-                  <select name="country" id="state-province" class="form-input">
-                    <option value="">State/Province*</option>
-                    <option value="1">Florida</option>
-                    <option value="2">NY</option>
-                    <option value="3">LA</option>
-                    <option value="4">PH</option>
-                  </select>
-
-                  <input id="zip-code" class="form-input" type="text" placeholder="Post/Zip Code" required="">
-
-                  <button class="btn btn-xs" type="submit">Estimate</button>
-
-              </form>
-            </div><!-- /.shipping-details -->
+          <div class="row" style="display: flex; justify-content: end; align-items: center;">
 
             <div class="billing-order col-md-4 col-sm-6">
               <div class="order-cost">
                 <ul>
-                  <li>
+                  <!-- <li>
                     <div class="bill-name">Sub-total</div>
                     <div class="amount"><span class="currency">$</span><span class="count">395.00</span></div>
                   </li>
                   <li>
                     <div class="bill-name">Shipping</div>
                     <div class="amount"><span class="currency">$</span><span class="count">25.00</span></div>
-                  </li>
+                  </li> -->
                   <li>
                     <div class="bill-name total">Order Total</div>
-                    <div class="amount total"><span class="currency">$</span><span class="count">370.00</span></div>
+                    <div class="amount total"><span class="currency">$</span><span class="count"><?=$tongtien?></span></div>
                   </li>
                 </ul>
-                <button class="btn">Proceed to checkout</button>
+                <button class="btn" onclick="window.location='<?=BASEPATH?>checkout'">Proceed to checkout</button>
               </div><!-- /.order-cost -->
             </div><!-- /.billing-order -->
           </div><!-- /.row -->

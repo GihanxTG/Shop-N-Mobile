@@ -9,6 +9,15 @@
     <div class="container">
         <div class="content">
             <div class="content_product-box">
+                <div class="header_content">
+                    <div class="header_content-info">
+                        Product
+                    </div>
+                    <button class="header_content-btn" id="showFormBtn">
+                        <i class="fa-solid fa-plus"></i> 
+                        Add new product
+                    </button>
+                </div>
                 <div class="product-header">
                     <div class="product_header-stt">STT</div>
                     <div class="product_header-img">Image</div>
@@ -41,6 +50,50 @@
 
 
             </div>
+
+            <div class="overlay" id="overlay"></div>
+
+            <div class="card form-container" id="formContainer">
+            <div class="card-body">
+                <span class="close" id="closeForm">&times;</span>
+              <h5 class="card-title fw-semibold mb-4">Thêm sản phẩm</h5>
+              <div class="card mb-0">
+                <div class="card-body">
+                  <form method="post" action="">
+                    <fieldset>
+                      <div class="mb-3">
+                        <label for="" class="form-label">Tên sản phẩm</label>
+                        <input type="text" id="tensp" class="form-control" placeholder="Ex: BLACK NOTHING 2 FEAR SHORT">
+                      </div>
+                      <div class="mb-3">
+                        <label for="" class="form-label">Hình ảnh</label>
+                        <input type="file" id="hinhanhsp" class="form-control" placeholder="">
+                      </div>
+                      <div class="mb-3">
+                        <label for="" class="form-label">Giá</label>
+                        <input type="text" id="giasp" class="form-control" placeholder="Ex: 100.000 vnd">
+                      </div>
+                      <div class="mb-3">
+                        <label for="" class="form-label">Mô tả</label>
+                        <input type="text" id="motasp" class="form-control" placeholder="Mô tả ....">
+                      </div>
+                      <div class="mb-3">
+                        <label for="" class="form-label">Danh mục</label>
+                        <select id="iddm" class="form-select">
+                            <option>...</option>
+                            <option>Áo</option>
+                            <option>Quần</option>
+                            <option>Áo khoác</option>
+                        </select>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary">Thêm</button>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
     </div>

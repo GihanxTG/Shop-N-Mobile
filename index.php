@@ -1,5 +1,8 @@
 <?php
-session_start();
+    session_start();
+    if(!isset($_SESSION['giohang'])){
+        $_SESSION['giohang']=[];
+    }
 
     require_once "App/Config/Database.php";
     require_once "vendor/autoload.php";
@@ -25,11 +28,22 @@ session_start();
     //Phân trang
     Route::add('/product/sotrang/(\d+)', 'ProductController@index');
 
-    //Giỏ hàng
+    //Cart
     Route::add('/cart', 'CartController@index');
+    Route::add('/viewcart', 'CartController@index');
+    Route::add('/addcart', 'CartController@addcart');
+    Route::add('/deletecart', 'CartController@deletecart');
+    Route::add('/deleteproduct/(\d+)', 'CartController@deleteproduct');
+    Route::add('/checkout', 'CartController@checkout');
 
     //Admin
+    Route::add('/admin', 'AdminController@index');
     Route::add('/admin/dashboard', 'AdminController@index');
+
+    //Admin login
+    Route::add('/admin/loginform', 'AdminController@loginform');
+    Route::add('/admin/login', 'AdminController@login');
+    Route::add('/admin/logout', 'AdminController@logout');
     //Admin Category
     Route::add('/admin/category', 'AdminController@category');
     

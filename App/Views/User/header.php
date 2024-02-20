@@ -17,7 +17,7 @@
     <meta name="description" content="Shopaholic - e-Commerce HTML5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="shortcut icon" type="image/png" href="<?=BASEPATH?>Public/assets/images/Logo-NMobile-removebg.png" />
+    <link rel="shortcut icon" type="image/png" href="<?=BASEPATH?>Public/assets/images/Logo-NMobile-removebg2.png" />
 
     <link rel="stylesheet" type="text/css" href="<?=BASEPATH?>Public/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?=BASEPATH?>Public/assets/css/themify-icons.css">
@@ -35,7 +35,6 @@
     <link rel="stylesheet" href="<?=BASEPATH?>Public/assets/css/shop/shop.css">
     <link rel="stylesheet" href="<?=BASEPATH?>Public/assets/css/pages/register.css">
     <link rel="stylesheet" href="<?=BASEPATH?>Public/assets/css/shop/cart.css">
-    <link rel="stylesheet" href="<?=BASEPATH?>Public/assets/css/shop/checkout.css">
 
     <!--[if lte IE 7]><script src="lte-ie7.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="Public/assets/js/vendor/html5-3.6-respond-1.4.2.min.js"></script><![endif]-->
@@ -80,41 +79,32 @@
               </ul> -->
             </div>
 
-            <div class="checkout"><a href="<?=BASEPATH?>Checkout">Checkout <i class="ti-check-box"></i></a></div><!-- /.checkout -->
+            <div class="checkout"><a href="<?=BASEPATH?>checkout">Checkout <i class="ti-check-box"></i></a></div><!-- /.checkout -->
 
 
             <?php
-            // Kiểm tra xem người dùng đã đăng nhập hay chưa
             if (isset($_SESSION['user_id'])) {
-                // Người dùng đã đăng nhập
-                echo '<div class="my-account dropdown">';
-                echo '<a href="' . BASEPATH . 'profile">' . $_SESSION['user_email'] . '<i class="ti-user"></i></a>';
-                echo '<ul class="unsorted-list">';
-                echo '<li><a href="' . BASEPATH . 'profile">My Profile</a></li>';
+              echo '<div class="my-account dropdown">';
+
+
+              echo '<a href="' . BASEPATH . 'profile">' . $_SESSION['user_id']['username'] . '<i class="ti-user"></i></a>';
+
+              echo '<ul class="unsorted-list">';
+              echo '<li><a href="' . BASEPATH . 'profile">My Profile</a></li>';
+
+              if($_SESSION['user_id']['role']<1){
                 echo '<li><a href="' . BASEPATH . 'admin/dashboard">Admin</a></li>';
-                echo '<li><a href="' . BASEPATH . 'cart">My Cart</a></li>';
-                echo '<li><a href="' . BASEPATH . 'logout">Log Out</a></li>';
-                echo '</ul>';
-                echo '</div>';
+              }
+              
+              echo '<li><a href="' . BASEPATH . 'cart">My Cart</a></li>';
+              echo '<li><a href="' . BASEPATH . 'logout">Log Out</a></li>';
+              echo '</ul>';
+              echo '</div>';
             } else {
-                // Người dùng chưa đăng nhập
                 echo '<a href="' . BASEPATH . 'login">Log In | Sign Up<i class="ti-user"></i></a>';
             }
             ?>
-
-
-            <!-- <div class="my-account dropdown">
-              <a href="<?=BASEPATH?>Register">Log In | Sign Up<i class="ti-user"></i></a>
-            </div> -->
-
-            <!-- <div class="my-account dropdown">
-              <a href="<?=BASEPATH?>Register">NghiaxTG<i class="ti-user"></i></a>
-              <ul class="unsorted-list">
-                <li><a href="<?=BASEPATH?>Profile">My Profile</a></li>
-                <li><a href="<?=BASEPATH?>Cart">My Cart</a></li>
-                <li><a href="<?=BASEPATH?>LogOut">Log Out</a></li>
-              </ul>
-            </div> -->
+            
             
           </div><!-- /.top-right -->
         </div><!-- /.row -->
@@ -148,7 +138,7 @@
           </div>
           <div class="col-sm-2">
             <div class="shop-cart">             
-              <a class="cart-control" href="<?=BASEPATH?>Cart" title="View your shopping cart">
+              <a class="cart-control" href="<?=BASEPATH?>cart" title="View your shopping cart">
                 <i class="ti-bag"></i>
                 <span class="count">0</span>
                 <span>Cart - </span> 

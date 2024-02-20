@@ -10,7 +10,7 @@
         }
 
         function index() {
-            $this->titlepage = 'Home';
+            $this->titlepage = 'N-Mobile';
             $dssp_new=$this->ProductModel->sanpham_get_all(0,8);
             $dssp_view=$this->ProductModel->sanpham_get_all(1,6);
             $this->data["New_Product"]=$dssp_new;
