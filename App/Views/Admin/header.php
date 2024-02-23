@@ -52,7 +52,7 @@
               <span class="hide-menu">UI COMPONENTS</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="<?=BASEPATH?>admin/category" aria-expanded="false">
+              <a class="sidebar-link" href="<?=BASEPATH?>admin/categories" aria-expanded="false">
                 <span>
                   <i class="ti ti-article"></i>
                 </span>
@@ -67,7 +67,7 @@
                 <span class="hide-menu">Product</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            <!-- <li class="sidebar-item">
               <a class="sidebar-link" href="<?=BASEPATH?>admin/bill" aria-expanded="false">
                 <span>
                   <i class="fa-solid fa-money-bill-1-wave"></i>
@@ -82,7 +82,7 @@
                 </span>
                 <span class="hide-menu">Add New</span>
               </a>
-            </li>
+            </li> -->
         </nav>
         <!-- End Sidebar navigation -->
       </div>
@@ -116,7 +116,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <a href="<?=BASEPATH?>index" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
                       <p class="mb-0 fs-3">Home</p>
                     </a>

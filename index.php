@@ -44,10 +44,18 @@
     Route::add('/admin/loginform', 'AdminController@loginform');
     Route::add('/admin/login', 'AdminController@login');
     Route::add('/admin/logout', 'AdminController@logout');
-    //Admin Category
-    Route::add('/admin/category', 'AdminController@category');
     
+    //Admin Category
+    Route::add('/admin/categories', 'AdminController@categories');
+    Route::add('/admin/addcatalog', 'AdminController@addcatalog');
+    Route::add('/admin/deletecategories', 'AdminController@deletecategories');
+
+    //Admin Product
     Route::add('/admin/product', 'AdminController@product');
+    Route::add('/admin/addproduct', 'AdminController@addproduct');
+    Route::add('/admin/deleteproducts', 'AdminController@deleteproducts');
+
+
     Route::add('/admin/bill', 'AdminController@bill');
     Route::add('/admin/add', 'AdminController@add');
 

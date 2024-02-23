@@ -16,10 +16,6 @@
 
                       <div class="item-details">
                         <h3 class="item-title">'.$item["product_name"].'</h3>
-                        <div class="product-meta">
-                          <span class="meta-id"> Color: <span class="meta-about">Black</span></span>
-                          <span class="meta-id"> Size: <span class="meta-about">XL</span></span>
-                        </div><!-- /.product-meta -->
                       </div><!-- /.item-details -->
                     </td>
                     <td class="unit-price"><span class="currency">$</span><span class="price">'.$item["price"].'</span></td>

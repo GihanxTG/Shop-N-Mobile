@@ -17,10 +17,34 @@
 
         }
 
+        // admin
+        function insert_product($product_name, $image, $price, $description, $stock_quantity, $categories_id){
+            $sql="insert into products(product_name, image, price, description, stock_quantity, categories_id) values('$product_name','$image','$price','$description','$stock_quantity','$categories_id')";
+            // echo $sql; 
+            $this->db->pdo_insert($sql);
+        }
+
+        function delete_product($product_id){
+            $sql = "DELETE FROM products WHERE product_id = $product_id";
+            return $this->db->pdo_insert($sql);
+        }
+
 
         function danhmuc_get_all(){
           $sql="select * from categories order by categories_id asc";
           return $this->db->get_all($sql);
+        }
+
+        function insert_categories($name, $description){
+            $sql="insert into categories(name, description) values('$name','$description')";
+            // echo $sql; 
+            $this->db->pdo_insert($sql);
+  
+        }
+
+        function delete_categories($categories_id){
+            $sql = "DELETE FROM categories WHERE categories_id = $categories_id";
+            return $this->db->pdo_insert($sql);
         }
 
         
@@ -60,7 +84,7 @@
                 $html_dssp_home.= '<div class="item col-md-3 col-sm-4 cat-1 cat-2">
                                         <a class="fancybox" href="'.$hrefsp.'">
                                         <div class="item-thumbnail">
-                                            <img src="'.BASEPATH.'Public/assets/images/'.$image.'" alt="'.$product_name.'">
+                                            <img src="'.BASEPATH.FILE_UPLOAD.$image.'" alt="'.$product_name.'">
                                         <span class="ribbon sale">-35%</span>
                                         </div>
                                         </a>
@@ -100,7 +124,7 @@
                                         <div class="item">
                                         <a class="fancybox" href="images/home08/featured/9.jpg">
                                         <div class="item-thumbnail">
-                                            <img src="'.BASEPATH.'Public/assets/images/'.$image.'" alt="'.$product_name.'">
+                                            <img src="'.BASEPATH.FILE_UPLOAD.$image.'" alt="'.$product_name.'">
                                             
                                         </div><!-- /.item-thumbnail -->
                                         </a>

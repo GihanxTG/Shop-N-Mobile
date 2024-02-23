@@ -4,6 +4,13 @@
     $product_all = $data["All_product"];
     $productpage=new App\Models\AdminModel;
     $html_dssp_all_product=$productpage->show_products($product_all);
+
+    $data = $data["danhmuc_all"];
+    $html_danhmuc='';
+    foreach($data as $item){
+      extract($item);
+      $html_danhmuc.='<option value="'.$categories_id.'">'.$name.'</option>';
+    }
     
 ?>
     <div class="container">
@@ -59,35 +66,40 @@
               <h5 class="card-title fw-semibold mb-4">Thêm sản phẩm</h5>
               <div class="card mb-0">
                 <div class="card-body">
-                  <form method="post" action="">
+                  <form method="post" action="<?=BASEPATH?>admin/addproduct" enctype="multipart/form-data">
                     <fieldset>
                       <div class="mb-3">
-                        <label for="" class="form-label">Tên sản phẩm</label>
-                        <input type="text" id="tensp" class="form-control" placeholder="Ex: BLACK NOTHING 2 FEAR SHORT">
+                        <label for="" class="form-label">Name</label>
+                        <input type="text" id="product_name" name="product_name" class="form-control" placeholder="Ex: iphone 15 pro max">
                       </div>
                       <div class="mb-3">
-                        <label for="" class="form-label">Hình ảnh</label>
-                        <input type="file" id="hinhanhsp" class="form-control" placeholder="">
+                        <label for="" class="form-label">Image</label>
+                        <input type="file" id="image" name="image" class="form-control" placeholder="">
                       </div>
                       <div class="mb-3">
-                        <label for="" class="form-label">Giá</label>
-                        <input type="text" id="giasp" class="form-control" placeholder="Ex: 100.000 vnd">
+                        <label for="" class="form-label">Price</label>
+                        <input type="text" id="price" name="price" class="form-control" placeholder="Ex: $999">
                       </div>
                       <div class="mb-3">
-                        <label for="" class="form-label">Mô tả</label>
-                        <input type="text" id="motasp" class="form-control" placeholder="Mô tả ....">
+                        <label for="" class="form-label">Quantity</label>
+                        <input type="text" id="stock_quantity" name="stock_quantity" class="form-control" placeholder="Ex: 999">
                       </div>
                       <div class="mb-3">
-                        <label for="" class="form-label">Danh mục</label>
-                        <select id="iddm" class="form-select">
-                            <option>...</option>
+                        <label for="" class="form-label">Description</label>
+                        <input type="text" id="description" name="description" class="form-control" placeholder="Description ....">
+                      </div>
+                      <div class="mb-3">
+                        <label for="" class="form-label">Category</label>
+                        <select id="categories_id" name="categories_id" class="form-select">
+                            <!-- <option>...</option>
                             <option>Áo</option>
                             <option>Quần</option>
-                            <option>Áo khoác</option>
+                            <option>Áo khoác</option> -->
+                            <?=$html_danhmuc?>
                         </select>
                       </div>
                       
-                      <button type="submit" class="btn btn-primary">Thêm</button>
+                      <button type="submit" name="btnaddproduct" class="btn btn-primary">Thêm</button>
                     </fieldset>
                   </form>
                 </div>
