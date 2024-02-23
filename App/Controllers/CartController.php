@@ -71,6 +71,7 @@
             }
         }
 
+        //Checkout
         function checkout() {
             $this->titlepage = 'Checkout';
             $this->renderView("checkout", $this->titlepage, $this->data);
